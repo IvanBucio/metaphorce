@@ -34,10 +34,10 @@ public class Contract extends BaseEntity implements Serializable {
 	private BigInteger contractId;
 	
 	@ManyToOne
-	@JoinColumn(name = "contractTypeId", nullable = false, updatable = false, insertable = false)
+	@JoinColumn(name = "employeeId", nullable = false, updatable = false, insertable = false)
 	@JsonBackReference("employee")
 	//@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Employee employeeId;
+	private Employee employee;
 	
 	@ManyToOne
 	@JoinColumn(name = "contractTypeId", nullable = false, updatable = false, insertable = false)

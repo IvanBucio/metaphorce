@@ -52,9 +52,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 	
 	@Override
 	public List<EmployeeDto> getActiveEmployees() {
-		List<Employee> employeeList = ((Collection<Employee>) employeeDao.findAll()).stream().filter(e -> e.getContract() != null && e.getContract().isActive()).collect(Collectors.toList());
+		List<Employee> employeeList = employeeDao.findEmployeesForActiveContract();
 		
-		List<EmployeeDto> employeeDtoList = StreamSupport.stream(employeeList.spliterator(), false).map(this::convertToDto).collect(Collectors.toList());
+		//List<EmployeeDto> employeeDtoList = StreamSupport.stream(employeeList.spliterator(), false).map(this::convertToDto).collect(Collectors.toList());
+		List<EmployeeDto> employeeDtoList = employeeList.stream().map(this::convertToDto).collect(Collectors.toList());
 		
 		return employeeDtoList ;
 	}

@@ -1,0 +1,5 @@
+spring:
+  profiles:    default: dev
+    
+swagger2: 
+  enabled: true
